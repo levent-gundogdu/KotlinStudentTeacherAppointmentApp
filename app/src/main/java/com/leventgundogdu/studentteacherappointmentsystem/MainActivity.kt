@@ -66,14 +66,14 @@ class MainActivity : AppCompatActivity() {
             Log.d("TAG", "onSuccess: ${it.data}")
 
             //identify if the user has access level
-            if (it.getString("isAdmin") != null) {
+            if (it.getString("isTeacher") != null) {
                 //user is admin
                 val intent = Intent(this, TeacherFeedActivity::class.java)
                 startActivity(intent)
                 finish()
             }
 
-            if (it.getString("isUser") != null) {
+            if (it.getString("isStudent") != null) {
                 //user is not admin
                 val intent = Intent(this, AppointmentFeedActivity::class.java)
                 startActivity(intent)

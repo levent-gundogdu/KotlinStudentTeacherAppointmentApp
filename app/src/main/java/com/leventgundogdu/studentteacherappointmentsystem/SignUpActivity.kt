@@ -80,10 +80,10 @@ class SignUpActivity : AppCompatActivity() {
 
                 //checkBox
                 if (teacherCheckBox.isChecked) {
-                    postMap.put("isAdmin", "1")
+                    postMap.put("isTeacher", "1")
                 }
                 if (studentCheckBox.isChecked) {
-                    postMap.put("isUser", "1")
+                    postMap.put("isStudent", "1")
                 }
 
                 df.set(postMap).addOnSuccessListener {
@@ -106,14 +106,14 @@ class SignUpActivity : AppCompatActivity() {
             Log.d("TAG", "onSuccess: ${it.data}")
 
             //identify if the user has access level
-            if (it.getString("isAdmin") != null) {
+            if (it.getString("isTeacher") != null) {
                 //user is admin
                 val intent = Intent(this, TeacherFeedActivity::class.java)
                 startActivity(intent)
                 finish()
             }
 
-            if (it.getString("isUser") != null) {
+            if (it.getString("isStudent") != null) {
                 //user is not admin
                 val intent = Intent(this, AppointmentFeedActivity::class.java)
                 startActivity(intent)
