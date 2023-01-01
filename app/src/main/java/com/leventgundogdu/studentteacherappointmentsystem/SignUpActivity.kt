@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,6 +29,12 @@ class SignUpActivity : AppCompatActivity() {
         auth = Firebase.auth
         firestore = Firebase.firestore
 
+        //hiding the action bar
+        val actionBar: ActionBar? = supportActionBar
+        if (actionBar != null) {
+            actionBar.hide()
+        }
+
         //checkBox Logics
 
         val studentCheckBox = binding.checkBoxStudent
@@ -47,7 +54,7 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-    fun registerButtonClicked(view: View) {
+    fun nextButtonClicked(view: View) {
 
         val fullName = binding.editTextRegisterName.text.toString()
         val email = binding.editTextRegisterEmail.text.toString()
@@ -96,6 +103,7 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this@SignUpActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
             }
         }
+
     }
 
     private fun checkUserAccessLevel(uid: String) {
@@ -121,5 +129,7 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
 }

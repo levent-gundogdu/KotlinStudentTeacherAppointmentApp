@@ -1,18 +1,15 @@
 package com.leventgundogdu.studentteacherappointmentsystem
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.core.Tag
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Source
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.leventgundogdu.studentteacherappointmentsystem.databinding.ActivityMainBinding
@@ -37,7 +34,10 @@ class MainActivity : AppCompatActivity() {
             checkUserAccessLevel(currentUser.uid)
         }
 
-
+        val actionBar: ActionBar? = supportActionBar //hiding the action bar
+        if (actionBar != null) {
+            actionBar.hide()
+        }
 
     }
 
