@@ -11,7 +11,6 @@ import com.google.firebase.ktx.Firebase
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.leventgundogdu.studentteacherappointmentsystem.databinding.ActivityStudentFeedBinding
-import com.leventgundogdu.studentteacherappointmentsystem.databinding.ActivityStudentAppointmentFeedBinding
 
 class StudentFeedActivity : AppCompatActivity() {
 
