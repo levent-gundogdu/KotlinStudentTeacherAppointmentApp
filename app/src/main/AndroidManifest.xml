@@ -13,6 +13,20 @@
         android:theme="@style/Theme.StudentTeacherAppointmentSystem"
         tools:targetApi="31">
         <activity
+            android:name=".StudentAppointmentFeedActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DetailedActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".TeacherFeedActivity"
             android:exported="false">
             <meta-data
@@ -27,7 +41,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AppointmentFeedActivity"
+            android:name=".StudentFeedActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
