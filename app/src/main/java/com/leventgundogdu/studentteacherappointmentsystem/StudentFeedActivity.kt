@@ -11,7 +11,6 @@ import com.google.firebase.ktx.Firebase
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.leventgundogdu.studentteacherappointmentsystem.databinding.ActivityStudentFeedBinding
-import com.leventgundogdu.studentteacherappointmentsystem.databinding.ActivityStudentAppointmentFeedBinding
 
 class StudentFeedActivity : AppCompatActivity() {
 
@@ -69,6 +68,12 @@ class StudentFeedActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        if (item.itemId == R.id.add_appointment) {
+            val intent = Intent(this, AppointmentFormActivity::class.java)
+            startActivity(intent)
+
         }
 
         return super.onOptionsItemSelected(item)
