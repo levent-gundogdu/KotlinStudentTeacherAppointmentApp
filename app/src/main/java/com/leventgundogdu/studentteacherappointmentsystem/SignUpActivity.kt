@@ -123,7 +123,7 @@ class SignUpActivity : AppCompatActivity() {
 
             if (it.getString("isStudent") != null) {
                 //user is not admin
-                val intent = Intent(this, AppointmentFeedActivity::class.java)
+                val intent = Intent(this, StudentFeedActivity::class.java)
                 startActivity(intent)
                 finish()
             }
