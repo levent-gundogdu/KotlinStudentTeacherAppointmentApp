@@ -70,6 +70,12 @@ class StudentFeedActivity : AppCompatActivity() {
             finish()
         }
 
+        if (item.itemId == R.id.add_appointment) {
+            val intent = Intent(this, AppointmentFormActivity::class.java)
+            startActivity(intent)
+
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
