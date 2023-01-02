@@ -53,13 +53,6 @@ class StudentFeedActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-        val menuInflater = menuInflater
-        menuInflater.inflate(R.menu.feed_menu, menu)
-
-        return super.onCreateOptionsMenu(menu)
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -73,6 +66,11 @@ class StudentFeedActivity : AppCompatActivity() {
         if (item.itemId == R.id.add_appointment) {
             val intent = Intent(this, AppointmentFormActivity::class.java)
             startActivity(intent)
+
+        }
+
+        if (item.itemId == R.id.add_appointment) {
+
 
         }
 

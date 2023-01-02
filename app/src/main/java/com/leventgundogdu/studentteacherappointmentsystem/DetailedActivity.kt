@@ -2,6 +2,7 @@ package com.leventgundogdu.studentteacherappointmentsystem
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -21,6 +22,14 @@ class DetailedActivity : AppCompatActivity() {
 
             textView.text = course.name
             imageView.setImageResource(course.image)
+
+            fun createChatClicked(view: View) {
+
+                
+
+            }
+
+
         }
     }
 }

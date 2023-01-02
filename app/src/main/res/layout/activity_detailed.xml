@@ -51,6 +51,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="111dp"
         android:layout_marginBottom="150dp"
+        android:onClick="createChatClicked"
         android:text="Sohbete Git"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
