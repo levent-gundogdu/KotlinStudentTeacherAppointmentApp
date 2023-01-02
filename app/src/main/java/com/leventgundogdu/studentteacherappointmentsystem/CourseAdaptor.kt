@@ -1,6 +1,5 @@
 package com.leventgundogdu.studentteacherappointmentsystem
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,7 @@ class CourseAdaptor(private val courseList:ArrayList<Course>)
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView : ImageView = itemView.findViewById(R.id.imageView)
-        val textView : TextView = itemView.findViewById(R.id.textView)
+        val textView : TextView = itemView.findViewById(R.id.txtappointmentTime)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {
