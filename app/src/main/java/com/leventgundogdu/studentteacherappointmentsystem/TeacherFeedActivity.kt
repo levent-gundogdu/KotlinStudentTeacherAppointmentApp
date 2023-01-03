@@ -22,7 +22,6 @@ class TeacherFeedActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var recyclerView: RecyclerView
-    //private lateinit var appointmentList : ArrayList<Appointment>
     private lateinit var adapter: AppointmentAdaptor
     private lateinit var appointmentAdaptor: AppointmentAdaptor
 
@@ -46,30 +45,14 @@ class TeacherFeedActivity : AppCompatActivity() {
             adapter.addAppointment(appointment)
             adapter.notifyDataSetChanged()
 
-//            val studentName = studentName
-//            val date = date
-//            val time = time
-//            println(studentName)
-//            println(date)
-//            println(time)
-//            appointmentList.add(Appointment(R.drawable.user1, studentName, date, time))
-//            appointmentList.add(Appointment(R.drawable.user1, studentName, date, time))
-//            appointmentList.add(Appointment(R.drawable.user1, studentName, date, time))
-//            appointmentList.add(Appointment(R.drawable.user1, studentName, date, time))
-//            appointmentList.add(Appointment(R.drawable.user1, studentName, date, time))
-
-
         }
-
-
-
     }
 
     private fun getData(callback: (studentName: String, date: String, time: String) -> Unit) {
-        val appointmentData = firestore.collection("Appointments")
+        val appointmentData1 = firestore.collection("Appointments").document("n8tYYF0nYRahtSxfQjc6YSsYXOJ2").collection("appointments")
         val userData = firestore.collection("Users")
 
-        appointmentData.get().addOnSuccessListener {
+        appointmentData1.get().addOnSuccessListener {
             for (document in it) {
                 if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
                     val date = document.getString("date")!!
@@ -77,8 +60,9 @@ class TeacherFeedActivity : AppCompatActivity() {
 
                     userData.get().addOnSuccessListener {
                         for (studentData in it) {
-                            if (document.id == studentData.id) {
+                            if ("n8tYYF0nYRahtSxfQjc6YSsYXOJ2" == studentData.id) {
                                 val studentName = studentData.getString("fullName")!!
+                                println(studentName)
                                 callback(studentName, date, time)
                             }
                         }
@@ -86,6 +70,112 @@ class TeacherFeedActivity : AppCompatActivity() {
                 }
             }
         }
+
+        val appointmentData2 = firestore.collection("Appointments").document("lJkJzWHIEwWbcOX0vHMBkg8PaBz2").collection("appointments")
+
+        appointmentData2.get().addOnSuccessListener {
+            for (document in it) {
+                if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
+                    val date = document.getString("date")!!
+                    val time = document.getString("time")!!
+
+                    userData.get().addOnSuccessListener {
+                        for (studentData in it) {
+                            if ("lJkJzWHIEwWbcOX0vHMBkg8PaBz2" == studentData.id) {
+                                val studentName = studentData.getString("fullName")!!
+                                println(studentName)
+                                callback(studentName, date, time)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        val appointmentData3 = firestore.collection("Appointments").document("HYYtzSqOIOgLylriqoAbwZPWrHP2").collection("appointments")
+
+        appointmentData3.get().addOnSuccessListener {
+            for (document in it) {
+                if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
+                    val date = document.getString("date")!!
+                    val time = document.getString("time")!!
+
+                    userData.get().addOnSuccessListener {
+                        for (studentData in it) {
+                            if ("HYYtzSqOIOgLylriqoAbwZPWrHP2" == studentData.id) {
+                                val studentName = studentData.getString("fullName")!!
+                                println(studentName)
+                                callback(studentName, date, time)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        val appointmentData4 = firestore.collection("Appointments").document("23QKAwy9FzP4WWtJkW8eN0agc6y1").collection("appointments")
+
+        appointmentData4.get().addOnSuccessListener {
+            for (document in it) {
+                if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
+                    val date = document.getString("date")!!
+                    val time = document.getString("time")!!
+
+                    userData.get().addOnSuccessListener {
+                        for (studentData in it) {
+                            if ("23QKAwy9FzP4WWtJkW8eN0agc6y1" == studentData.id) {
+                                val studentName = studentData.getString("fullName")!!
+                                println(studentName)
+                                callback(studentName, date, time)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        val appointmentData5 = firestore.collection("Appointments").document("xaKvRIbN9YXk6o6rupfOhyLc58W2").collection("appointments")
+
+        appointmentData5.get().addOnSuccessListener {
+            for (document in it) {
+                if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
+                    val date = document.getString("date")!!
+                    val time = document.getString("time")!!
+
+                    userData.get().addOnSuccessListener {
+                        for (studentData in it) {
+                            if ("xaKvRIbN9YXk6o6rupfOhyLc58W2" == studentData.id) {
+                                val studentName = studentData.getString("fullName")!!
+                                println(studentName)
+                                callback(studentName, date, time)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        val appointmentData6 = firestore.collection("Appointments").document("xDzaBGjrnEWxHdqq2cgcQfl4DnU2").collection("appointments")
+
+        appointmentData6.get().addOnSuccessListener {
+            for (document in it) {
+                if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
+                    val date = document.getString("date")!!
+                    val time = document.getString("time")!!
+
+                    userData.get().addOnSuccessListener {
+                        for (studentData in it) {
+                            if ("xDzaBGjrnEWxHdqq2cgcQfl4DnU2" == studentData.id) {
+                                val studentName = studentData.getString("fullName")!!
+                                println(studentName)
+                                callback(studentName, date, time)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

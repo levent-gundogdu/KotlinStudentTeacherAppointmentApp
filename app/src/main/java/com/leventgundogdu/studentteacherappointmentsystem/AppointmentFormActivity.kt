@@ -33,17 +33,20 @@ class AppointmentFormActivity : AppCompatActivity() {
         val teacherEmail = binding.editTextTextEmail.text.toString()
         val time = binding.editTextTime.text.toString()
         val date = binding.editTextDate.text.toString()
+        var studentEmail = auth.currentUser!!.email
 
         if (teacherEmail.equals("") || time.equals("") || date.equals("")) {
             Toast.makeText(this, "Teacher email, date or time cannot be empty!", Toast.LENGTH_LONG).show()
         } else {
             val currentUser = auth.currentUser
             if (currentUser != null) {
-                val df = firestore.collection("Appointments").document(currentUser.uid)
+                val studentId = currentUser.uid
+                val df = firestore.collection("Appointments").document(studentId).collection("appointments").document()
                 val postMap = hashMapOf<String, Any>()
                 postMap.put("teacherEmail", teacherEmail)
                 postMap.put("date", date)
                 postMap.put("time", time)
+                postMap.put("studentEmail", studentEmail!!)
                 df.set(postMap).addOnSuccessListener {
                     Toast.makeText(this@AppointmentFormActivity, "Appointment Created!", Toast.LENGTH_LONG).show()
                     finish()
@@ -52,7 +55,7 @@ class AppointmentFormActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
+
 
 }
