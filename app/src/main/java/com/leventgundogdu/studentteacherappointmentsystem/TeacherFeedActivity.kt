@@ -71,7 +71,7 @@ class TeacherFeedActivity : AppCompatActivity() {
 
         appointmentData.get().addOnSuccessListener {
             for (document in it) {
-                if (document.getString("teacherEmail").equals("can@can.com")) {
+                if (document.getString("teacherEmail").equals(auth.currentUser!!.email)) {
                     val date = document.getString("date")!!
                     val time = document.getString("time")!!
 
@@ -90,7 +90,7 @@ class TeacherFeedActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = menuInflater
-        menuInflater.inflate(R.menu.feed_menu, menu)
+        menuInflater.inflate(R.menu.teacher_feed_menu, menu)
 
         return super.onCreateOptionsMenu(menu)
     }

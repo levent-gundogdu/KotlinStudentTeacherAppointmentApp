@@ -39,7 +39,7 @@ class StudentFeedActivity : AppCompatActivity() {
         courseList.add(Course(R.drawable.course3, "Dr. Öğr. Üyesi Manu Dube" ))
         courseList.add(Course(R.drawable.course4, "Dr. Öğr. Üyesi Tufan Ekin" ))
         courseList.add(Course(R.drawable.course5, "Dr. Öğr. Üyesi Engin Kandıran" ))
-        courseList.add(Course(R.drawable.course6, "Dr. Öğr. Üyesi Aziz Tüter" ))
+        courseList.add(Course(R.drawable.course6, "Dr. Öğr. Üyesi Çağla Özen" ))
 
         courseAdaptor = CourseAdaptor(courseList)
         recyclerView.adapter = courseAdaptor
