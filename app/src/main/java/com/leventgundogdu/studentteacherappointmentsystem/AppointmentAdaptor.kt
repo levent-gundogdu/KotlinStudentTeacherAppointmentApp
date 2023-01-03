@@ -7,32 +7,36 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AppointmentAdaptor(private val appointmentList:ArrayList<Appointment>) : RecyclerView.Adapter<AppointmentAdaptor.AppointmentViewHolder>() {
+class AppointmentAdaptor(private val appointments: MutableList<Appointment>) : RecyclerView.Adapter<AppointmentAdaptor.ViewHolder>() {
 
-    class AppointmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView : ImageView = itemView.findViewById(R.id.imageView)
         val textView1 : TextView = itemView.findViewById(R.id.txtstudentName)
         val textView2 : TextView = itemView.findViewById(R.id.txtappointmentDate)
         val textView3 : TextView = itemView.findViewById(R.id.txtappointmentTime)
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.appointment_item , parent , false)
-        return AppointmentViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.appointment_item, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: AppointmentViewHolder, position: Int) {
-        val appointment = appointmentList[position]
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val appointment = appointments[position]
         holder.imageView.setImageResource(appointment.image)
-        holder.textView1.text = appointment.name1
-        holder.textView2.text = appointment.name2
-        holder.textView3.text = appointment.name3
+        holder.textView1.text = appointment.studentName
+        holder.textView2.text = appointment.date
+        holder.textView3.text = appointment.time
     }
 
     override fun getItemCount(): Int {
-        return appointmentList.size
+        return appointments.size
+    }
+
+    fun addAppointment(appointment: Appointment) {
+        appointments.add(appointment)
+        notifyDataSetChanged()
     }
 
 }

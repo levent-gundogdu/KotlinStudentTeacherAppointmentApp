@@ -36,27 +36,21 @@ class AppointmentFormActivity : AppCompatActivity() {
 
         if (teacherEmail.equals("") || time.equals("") || date.equals("")) {
             Toast.makeText(this, "Teacher email, date or time cannot be empty!", Toast.LENGTH_LONG).show()
-
         } else {
-
             val currentUser = auth.currentUser
-            val df = firestore.collection("Appointments").document(currentUser!!.uid)
-
-            val postMap = hashMapOf<String, Any>()
-            postMap.put("teacherEmail", teacherEmail)
-            postMap.put("date", date)
-            postMap.put("time", time)
-
-            df.set(postMap).addOnSuccessListener {
-                //checkUserAccessLevel(currentUser.uid)
-                Toast.makeText(this@AppointmentFormActivity, "Appointment Created!", Toast.LENGTH_LONG).show()
-                finish()
-
-            }.addOnFailureListener {
-                Toast.makeText(this@AppointmentFormActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
+            if (currentUser != null) {
+                val df = firestore.collection("Appointments").document(currentUser.uid)
+                val postMap = hashMapOf<String, Any>()
+                postMap.put("teacherEmail", teacherEmail)
+                postMap.put("date", date)
+                postMap.put("time", time)
+                df.set(postMap).addOnSuccessListener {
+                    Toast.makeText(this@AppointmentFormActivity, "Appointment Created!", Toast.LENGTH_LONG).show()
+                    finish()
+                }.addOnFailureListener {
+                    Toast.makeText(this@AppointmentFormActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
+                }
             }
-
-
         }
 
     }
